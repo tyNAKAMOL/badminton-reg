@@ -31,7 +31,11 @@ export default function Home() {
 
   const [message, setMessage] = useState('')
 
-  function handleChange(e: any, player?: string) {
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    player?: string
+  ) {
+  
     const { name, value } = e.target
     if (player) {
       setForm((prev) => ({
