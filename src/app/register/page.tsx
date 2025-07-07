@@ -33,24 +33,24 @@ export default function Home() {
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-    player?: string
+    player?: 'player1' | 'player2'
   ) {
   
     const { name, value } = e.target
-    if (player) {
-      setForm((prev) => ({
-        ...prev,
-        [player]: {
-          ...prev[player],
+    if (player === 'player1' || player === 'player2') {
+        setForm((prev) => ({
+          ...prev,
+          [player]: {
+            ...prev[player],
+            [name]: value
+          }
+        }))
+      } else {
+        setForm((prev) => ({
+          ...prev,
           [name]: value
-        }
-      }))
-    } else {
-      setForm((prev) => ({
-        ...prev,
-        [name]: value
-      }))
-    }
+        }))
+      }
   }
 
   async function handleSubmit(e: React.FormEvent) {
