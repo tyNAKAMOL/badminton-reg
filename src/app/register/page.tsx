@@ -154,7 +154,7 @@ export default function Home() {
                   name="firstName"
                   placeholder="ชื่อจริง"
                   value={form[`player${num}` as 'player1' | 'player2'].firstName}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
                   required
                 />
               </div>
@@ -165,7 +165,8 @@ export default function Home() {
                   name="lastName"
                   placeholder="นามสกุล"
                   value={form[`player${num}` as 'player1' | 'player2'].lastName}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
+
                   required
                 />
               </div>
@@ -175,7 +176,8 @@ export default function Home() {
                   className="border rounded p-2 w-full"
                   name="gender"
                   value={form[`player${num}` as 'player1' | 'player2'].gender}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
+
                   required
                 >
                   <option value="">เลือกเพศ</option>
@@ -191,7 +193,8 @@ export default function Home() {
                   type="number"
                   placeholder="อายุ"
                   value={form[`player${num}` as 'player1' | 'player2'].age}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
+
                   required
                 />
               </div>
@@ -202,7 +205,8 @@ export default function Home() {
                   name="phone"
                   placeholder="เบอร์โทร"
                   value={form[`player${num}` as 'player1' | 'player2'].phone}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
+
                   required
                 />
               </div>
@@ -213,7 +217,8 @@ export default function Home() {
                   name="email"
                   placeholder="Email"
                   value={form[`player${num}` as 'player1' | 'player2'].email}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
+
                   required
                 />
               </div>
@@ -224,7 +229,8 @@ export default function Home() {
                   name="lineId"
                   placeholder="Line ID"
                   value={form[`player${num}` as 'player1' | 'player2'].lineId}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
+
                   required
                 />
               </div>
@@ -234,7 +240,8 @@ export default function Home() {
                   className="border rounded p-2 w-full"
                   name="shirtSize"
                   value={form[`player${num}` as 'player1' | 'player2'].shirtSize}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
+
                   required
                 >
                   <option value="">เลือกไซส์</option>
@@ -251,7 +258,8 @@ export default function Home() {
                   name="shirtText"
                   placeholder="ใส่ชื่อหรือข้อความ"
                   value={form[`player${num}` as 'player1' | 'player2'].shirtText}
-                  onChange={(e) => handleChange(e, `player${num}`)}
+                  onChange={(e) => handleChange(e, `player${num}` as 'player1' | 'player2')}
+
                   required
                 />
               </div>
