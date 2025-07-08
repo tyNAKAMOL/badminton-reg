@@ -247,7 +247,7 @@ const [uploadedFile, setUploadedFile] = useState<File | null>(null);
                 ทีมที่ลงทะเบียนจะได้รับเสื้อทีมพร้อมชื่อที่กำหนดเอง
                 สามารถเลือกไซส์และข้อความที่ต้องการพิมพ์ได้
               </p>
-              <img src='/images/shirt.png' alt='rack'/>
+              <img src='/images/shirt.png' alt='rak'/>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
