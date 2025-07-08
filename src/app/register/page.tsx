@@ -16,6 +16,7 @@ export default function BadmintonRegistrationStepper() {
         shirtText: string;
       }
   const [activeStep, setActiveStep] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 //   const [uploadedFile, setUploadedFile] = useState(null);
 const [uploadedFile, setUploadedFile] = useState<File | null>(null);
@@ -70,6 +71,20 @@ const [uploadedFile, setUploadedFile] = useState<File | null>(null);
         }))
       }
   }
+
+  const handleButtonClick = async () => {
+    setLoading(true);
+    try {
+      if (activeStep === steps.length - 1) {
+        await handleSubmit();
+      } else {
+        await handleNext();
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+  
 
   const handleNext = () => {
     if (activeStep === 0 && !agreedToTerms) {
@@ -810,11 +825,38 @@ const [uploadedFile, setUploadedFile] = useState<File | null>(null);
                   Back
                 </button>
                 <button
-                  onClick={activeStep === steps.length - 1 ? handleSubmit : handleNext}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
-                >
-                  {activeStep === steps.length - 1 ? 'Submit' : 'Next'}
-                </button>
+  onClick={handleButtonClick}
+  disabled={loading}
+  className={`
+    ${loading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}
+    text-white font-semibold py-2 px-6 rounded-lg transition-colors flex items-center justify-center
+  `}
+>
+  {loading && (
+    <svg
+      className="animate-spin h-5 w-5 mr-2 text-white"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      ></circle>
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+      ></path>
+    </svg>
+  )}
+  {loading ? 'กำลังดำเนินการ...' : activeStep === steps.length - 1 ? 'Submit' : 'Next'}
+</button>
+
               </div>
             </>
           )}
