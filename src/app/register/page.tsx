@@ -123,38 +123,38 @@ const [uploadedFile, setUploadedFile] = useState<File | null>(null);
     setMessage('');
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
-    setAgreedToTerms(false);
-    setUploadedFile(null);
-    setMessage('');
-    setForm({
-      teamName: '',
-      category: '',
-      player1: {
-        firstName: '',
-        lastName: '',
-        gender: '',
-        email: '',
-        age: '',
-        phone: '',
-        lineId: '',
-        shirtSize: '',
-        shirtText: ''
-      },
-      player2: {
-        firstName: '',
-        lastName: '',
-        gender: '',
-        email: '',
-        age: '',
-        phone: '',
-        lineId: '',
-        shirtSize: '',
-        shirtText: ''
-      }
-    });
-  };
+//   const handleReset = () => {
+//     setActiveStep(0);
+//     setAgreedToTerms(false);
+//     setUploadedFile(null);
+//     setMessage('');
+//     setForm({
+//       teamName: '',
+//       category: '',
+//       player1: {
+//         firstName: '',
+//         lastName: '',
+//         gender: '',
+//         email: '',
+//         age: '',
+//         phone: '',
+//         lineId: '',
+//         shirtSize: '',
+//         shirtText: ''
+//       },
+//       player2: {
+//         firstName: '',
+//         lastName: '',
+//         gender: '',
+//         email: '',
+//         age: '',
+//         phone: '',
+//         lineId: '',
+//         shirtSize: '',
+//         shirtText: ''
+//       }
+//     });
+//   };
 
   const handleSubmit = async () => {
     try {
@@ -176,9 +176,11 @@ const [uploadedFile, setUploadedFile] = useState<File | null>(null);
         setMessage(`${data.error}`);
       }
     } catch (error) {
-      setMessage('✅ ลงทะเบียนสำเร็จ (Demo Mode)');
-      setActiveStep(steps.length);
-    }
+        console.error(error);
+        setMessage('✅ ลงทะเบียนสำเร็จ (Demo Mode)');
+        setActiveStep(steps.length);
+      }
+      
   };
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
